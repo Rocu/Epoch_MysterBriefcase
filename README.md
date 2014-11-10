@@ -4,7 +4,7 @@ Mystery Briefcase addon for Epoch mod
 Version 1.0
 
 For discussion & demo video, visit here: 
-> http://www.com
+> http://epochmod.com/forum/index.php?/topic/28388-release-mystery-briefcase/
 
 
 ##Features
@@ -21,7 +21,7 @@ It uses the base briefcase model as an item and turns it into a Mystery Briefcas
 
 
 ##Installation
-1. Firstly, download & install Maca134's Right Click Option script if you haven't done it already:
+1. Firstly, download & install Maca134's ***Right Click Option*** script if you haven't done it already:
 
 	> http://epochservers.com/viewtopic.php?f=14&t=13
 
@@ -31,7 +31,7 @@ It uses the base briefcase model as an item and turns it into a Mystery Briefcas
 
 	> Copy the ***mbc*** folder into your mission's ***addons*** folder. If you don't have an addons folder in there then create it
 
-1. Open description.ext (from mission PBO)
+1. Open ***description.ext*** (from mission PBO)
 
 1. Find:
 
@@ -53,7 +53,7 @@ It uses the base briefcase model as an item and turns it into a Mystery Briefcas
 		};
 	};
 	~~~~
-	Note if you already have custom sounds in your description.ext then just add the Brief_Open_Sound class manually (using the example above)
+	***Note*** if you already have custom sounds in your description.ext then just add the Brief_Open_Sound class manually (using the example above)
 	
 1.	At the bottom of description.ext, add this:
 	
@@ -69,13 +69,13 @@ It uses the base briefcase model as an item and turns it into a Mystery Briefcas
 1. At the very bottom, add this:
 
 	~~~~java
-	// Mystery Briefcase by Rocu
-	call compile preprocessFileLineNumbers "addons\mbc\config.sqf";
+// Mystery Briefcase by Rocu
+call compile preprocessFileLineNumbers "addons\mbc\config.sqf";
 	~~~~
 
 1. Save & close ***compiles.sqf***
 	
-1. Open extra_rc.hpp (if you installed Maca's script correctly you should have that file in ***\custom\*** folder
+1. Open ***extra_rc.hpp*** (if you installed Maca's script correctly you should have that file in ***\custom\*** folder)
 
 1. Find:
 
@@ -86,12 +86,12 @@ It uses the base briefcase model as an item and turns it into a Mystery Briefcas
 1. Below it, add:
 
 	~~~~java
-    class ItemBriefcase_Base {
-        class OpenSurpriseBrief {
-            text = "Open Briefcase";
-            script = "execVM 'addons\mbc\open_brief.sqf'";
-        };
-    };
+class ItemBriefcase_Base {
+	class OpenSurpriseBrief {
+		text = "Open Briefcase";
+		script = "execVM 'addons\mbc\open_brief.sqf'";
+	};
+};
 	~~~~
 
 1. Save & close extra_rc.hpp
