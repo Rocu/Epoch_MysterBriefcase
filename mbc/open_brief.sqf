@@ -95,8 +95,6 @@ if (_finished) then {
 	} forEach MBC_REWARDLIST;
 	
 	Sleep 0.2;
-	diagLogr = "---------------------------------";
-	publicVariable "diagLogr";
 
 	for "_i" from 1 to 6 do {
 		private ["_loot","_lootIndex","_lootType"];
@@ -110,8 +108,6 @@ if (_finished) then {
 		switch (_lootType) do {
 			case "group_wep": {
 				Sleep 0.2;
-				diagLogr = format["[BRIEF] Before weapon randomizer: %1",_loot];
-				publicVariable "diagLogr";
 				_groupingArray = _loot select 1;
 				_weapon = _groupingArray call BIS_fnc_selectRandom;
 				_loot set [1, _weapon]; // Random weapon
@@ -119,8 +115,6 @@ if (_finished) then {
 			};
 			case "group_mag": {
 				Sleep 0.2;
-				diagLogr = format["[BRIEF] Before magazine randomizer: %1",(_loot select 1)];
-				publicVariable "diagLogr";
 				_mag = (_loot select 1) call BIS_fnc_selectRandom;
 				_loot set [1, _mag]; // Random item
 			};
@@ -128,9 +122,6 @@ if (_finished) then {
 		mbc_rewardlist_temp set [count mbc_rewardlist_temp, _loot];
 		_loot = [];
 	};
-	
-	diagLogr = format["[BRIEF] Array created: %1",mbc_rewardlist_temp];
-	publicVariable "diagLogr";
 	
 	UpdateMBCDialog = {
 		{
