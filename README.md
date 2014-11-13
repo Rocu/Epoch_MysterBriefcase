@@ -1,7 +1,7 @@
 Mystery Briefcase addon for Epoch mod
 =================
 
-Version 1.0
+Version 1.1
 
 For discussion & demo video, visit here: 
 > http://epochmod.com/forum/index.php?/topic/28388-release-mystery-briefcase/

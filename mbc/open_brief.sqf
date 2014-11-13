@@ -111,7 +111,11 @@ if (_finished) then {
 				_groupingArray = _loot select 1;
 				_weapon = _groupingArray call BIS_fnc_selectRandom;
 				_loot set [1, _weapon]; // Random weapon
-				_loot set [2, (1 + floor(random 3))]; // Random amount of mags
+				if ((_loot select 2) < 1) then {
+					_loot set [2, 0]; // Random amount of mags
+				} else {
+					_loot set [2, (1 + floor(random 3))]; // Random amount of mags
+				};
 			};
 			case "group_mag": {
 				Sleep 0.2;
@@ -137,7 +141,13 @@ if (_finished) then {
 					_pic = getText (configFile >> 'CfgWeapons' >> _x select 1 >> 'picture');
 					_itemName = getText (configFile >> 'CfgWeapons' >> _x select 1 >> 'displayName');
 					_qty = _x select 2;
-					_text = format["%1\n+%2 magazines", _itemName, _qty];
+					_magsCheck = getArray (configFile >> 'CfgWeapons' >> _x select 1 >> 'magazines');
+					if (count _magsCheck > 0 && _qty > 0) then {
+						_text_mag = if (_qty > 1) then { "magazines" } else { "magazine" };
+						_text = format["%1\n+%2 %3", _itemName, _qty, _text_mag];
+					} else {
+						_text = format["%1", _itemName];
+					};
 				};
 				case "group_mag": {
 					_pic = getText (configFile >> 'CfgMagazines' >> _x select 1 >> 'picture');
@@ -222,7 +232,7 @@ if (_finished) then {
 			case "group_wep": {
 				_spawnCrate addWeaponCargoGlobal [_x select 1, 1];
 				_magazines = getArray (configFile >> "CfgWeapons" >> _x select 1 >> "magazines");
-				if (count _magazines > 0) then
+				if (count _magazines > 0 && (_x select 2) > 0) then
 				{
 					_magazineClass = _magazines select 0;
 					_spawnCrate addMagazineCargoGlobal [_magazineClass, _x select 2];
