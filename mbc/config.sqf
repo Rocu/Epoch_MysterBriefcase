@@ -72,7 +72,7 @@ MBC_REWARDLIST = [
 	,["group_wep",_sniper_group,1,2,9]
 	,["group_mag",_common_group,1,2,12]
 	,["group_mag",_military_group,1,2,2]
-	,["group_mag",_medical_group,5,2,2]
+	,["group_mag",_medical_group,2,2,2]
 	,["group_mag",_vehicle_repair_group,2,2,2]
 	,["group_wep",_tools_group,0,2,6]
 	,["magazine","ItemGoldBar10oz",5,2,4]
@@ -87,7 +87,7 @@ MBC_REWARDLIST = [
 	,["magazine","PartPlywoodPack",30,3,2]
 	,["magazine","PartPlankPack",30,3,3]
 	,["magazine","ItemPole",30,3,2]
-	,["group_mag",_chainbullets_group,5,2,1]
+	,["group_mag",_chainbullets_group,2,3,1]
 	
 	// Legendary
 	,["group_wep",_chainsaw_group,0,4,1]
